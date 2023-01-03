@@ -1,5 +1,6 @@
 List countWord(String a){
-  a = a.replaceAll(new RegExp(r'[^\w\s]+'),'');
+  a = a.toLowerCase(); //  lowering the text
+  a = a.replaceAll(new RegExp(r'[^\w\s]+'),''); //removing punctuation or symbols
   final splitted = a.split(' ');
   var splittedSentence = new Map();
   for (var i = 0; i < splitted.length; i++){
@@ -10,7 +11,7 @@ List countWord(String a){
     }
   }
   List things = [];
-  splittedSentence.removeWhere((k, v) => v == 1);
+  splittedSentence.removeWhere((k, v) => v == 1); //removing words if those only appear once
   things = splittedSentence.keys.toList();
   return things;
 }
